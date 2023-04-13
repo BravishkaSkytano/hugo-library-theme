@@ -1,0 +1,45 @@
+{{ define "title" }}Home{{ end }}
+{{ define "main" }}
+<div class="books">
+  {{ range .Site.Sections }}
+  <article>
+    {{ if .Params.cover }}
+    <figure>
+      <img src="{{ .Params.cover }}" alt="cover">
+    </figure>
+    {{ end }}
+    <hgroup>
+      <h2 style="text-align: center;">
+        <a href="{{ .Permalink }}">
+          {{ .Title }}
+        </a>
+      </h2>
+      <p>
+        {{ if .Params.subtitle }}{{ .Params.subtitle }}<br/>{{ end }}
+        {{ if .Params.author }}by {{ .Params.author }}</br>/{{ end }}
+        {{ if .Description }}{{ .Description }}{{ end }}
+      </p>
+    </hgroup>
+    <ul>
+      {{ range first 5 .Pages }}
+      <li>
+        <a href="{{ .Permalink }}">
+          <p class="mb-1">
+            {{ .Title }}
+          </p>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+    {{ $pageNums := len .Pages }}
+    {{ if ge $pageNums 6 }}
+    <p style="text-align: right;">
+      <a href="{{ .Permalink }}">
+        ...more
+      </a>
+    </p>
+    {{ end }}
+  </article>
+  {{ end }}
+</div>
+{{ end }}

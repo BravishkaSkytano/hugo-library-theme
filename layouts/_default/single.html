@@ -1,0 +1,30 @@
+
+{{ define "subtitle" }}
+<a href="{{ .Parent.Permalink }}">
+  <em>{{ .Parent.Title }}</em> by {{ .Parent.Params.author }}
+</a><br/>
+{{ if (gt .ReadingTime 0) }}
+{{ .ReadingTime }} min. ({{ .WordCount }} words)
+{{ end }}
+{{ end }}
+{{ define "main" }}
+<article>
+  {{ .Content }}
+  <div class="grid">
+    {{ with .NextInSection }}
+    <div style="text-align: left;">
+      <a href="{{ .Permalink }}">
+        &lt;&dash;&dash; {{ .Title }}
+      </a>
+    </div>
+    {{ end }}
+    {{ with .PrevInSection }}
+    <div style="text-align: right;">
+      <a href="{{ .Permalink }}">
+        {{ .Title }} &dash;&dash;&gt;
+      </a>
+    </div>
+    {{ end }}
+  </div>
+</article>
+{{ end }}

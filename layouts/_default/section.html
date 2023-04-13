@@ -1,0 +1,26 @@
+{{ define "title" }}
+<em>{{ .Title }}</em>{{ if .Params.author }} by {{ .Params.author }}{{ end }}
+{{ end }}
+{{ define "main" }}
+<article>
+  {{ if .Params.cover }}
+  <aside>
+    <figure>
+      <img src="{{ .Params.cover }}" alt="cover" />
+    </figure>
+  </aside>
+  {{ end }}
+  {{ .Content }}
+  <div class="chapters" style="clear: both;">
+    <ul>
+      {{ range .Pages }}
+      <li>
+        <a href="{{ .Permalink }}">
+          {{ .Title }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</article>
+{{ end }}
