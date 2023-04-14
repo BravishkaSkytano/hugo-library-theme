@@ -5,7 +5,7 @@
   <article>
     {{ if .Params.cover }}
     <figure>
-      <img src="{{ .Params.cover }}" alt="cover">
+      <img src="{{ .Params.cover | relURL }}" alt="cover">
     </figure>
     {{ end }}
     <hgroup>
@@ -24,9 +24,7 @@
       {{ range first 5 .Pages }}
       <li>
         <a href="{{ .Permalink }}">
-          <p class="mb-1">
-            {{ .Title }}
-          </p>
+          {{ .Title }}
         </a>
       </li>
       {{ end }}
