@@ -13,7 +13,7 @@
     {{ end -}}
     {{ hugo.Generator }}
     <link rel="shortcut icon" href="/favicon.ico" />
-    {{ $sass := resources.Get "scss/custom.scss" }}
+    {{ $sass := resources.Get "/scss/custom.scss" }}
     {{ $style := $sass | resources.ToCSS }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 </head>

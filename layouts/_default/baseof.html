@@ -25,17 +25,7 @@
       </li>
     </ul>
   </nav>
-  <header class="container">
-    <hgroup>
-      <h1>{{- block "title" . }}{{ .Title }}{{- end }}</h1>
-      <p>
-        {{- block "subtitle" . }}
-        {{ if .Params.subtitle }}{{ .Params.subtitle }}<br/>{{ end }}
-        {{ if .Description }}{{ .Description }}{{ end }}
-        {{ end }}
-      </p>
-    </hgroup>
-  </header>
+  {{- partial "header.html" . -}}
   <main class="container">
     {{- block "main" . }}{{- end }}
   </main>
