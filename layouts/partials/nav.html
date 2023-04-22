@@ -3,7 +3,7 @@
     <ul>
       {{ range .Ancestors.Reverse }}
       <li>
-        <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
       </li>
       {{ end }}
     </ul>

@@ -3,7 +3,7 @@
   {{ with .Params.cover }}
   <aside>
     <figure>
-      <img src="{{ . }}" alt="cover" />
+      <img src="{{ relURL . }}" alt="cover" />
     </figure>
   </aside>
   {{ end }}
@@ -12,7 +12,7 @@
     <ul>
       {{ range .Pages }}
       <li>
-        <a href="{{ .Permalink }}">
+        <a href="{{ .RelPermalink }}">
           {{ .Title }}
         </a>
       </li>

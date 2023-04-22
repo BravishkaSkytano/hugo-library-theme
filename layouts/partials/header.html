@@ -6,10 +6,10 @@
       {{ with .Description }}{{ . }}<br/>{{ end }}
       {{ with .Params.author }}by {{ . }}<br/>{{ end }}
       {{ with .GetTerms "categories" }}{{ range . }}
-      <a href="{{ .Permalink }}">{{ .LinkTitle }}.</a>
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}.</a>
       {{ end }}<br/>{{ end }}
       {{ with .GetTerms "tags" }}{{ range . }}
-      <a href="{{ .Permalink }}">{{ .LinkTitle }}.</a>
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}.</a>
       {{ end }}<br/>{{ end }}
     </p>
   </hgroup>
