@@ -1,0 +1,18 @@
+<nav class="container">
+  <nav aria-label="breadcrumb">
+    <ul>
+      {{ range .Ancestors.Reverse }}
+      <li>
+        <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </nav>
+ <!-- <ul>
+    <li>
+      <a href="{{ .Site.BaseURL }}">
+        <strong>{{ .Site.Title }}</strong>
+      </a>
+    </li>
+ </ul>-->
+</nav>

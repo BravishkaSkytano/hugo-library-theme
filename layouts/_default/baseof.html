@@ -1,34 +1,11 @@
 <!DOCTYPE html>
 <html>
-{{- partial "head.html" . -}}
+{{- partial "head" . -}}
 <body>
-  <nav class="container">
-    <ul>
-      <li>
-        <a href="/">
-          <strong>{{ .Site.Title }}</strong>
-        </a>
-      </li>
-    </ul>
-    <ul>
-      <li>
-        <details role="list" dir="rtl">
-          <summary aria-haspopup="listbox" role="link">Books</summary>
-          <ul role="listbox">
-            {{ range .Site.Sections }}
-            <li>
-              <a href="{{ .Permalink }}">{{ .Title }} by {{ .Params.author }}</a>
-            </li>
-            {{ end }}
-          </ul>
-        </details>
-      </li>
-    </ul>
-  </nav>
-  {{- partial "header.html" . -}}
+  {{- partial "nav" . -}}
+  {{- partial "header" . -}}
   <main class="container">
     {{- block "main" . }}{{- end }}
   </main>
-  {{- partial "footer.html" . -}}
 </body>
 </html>

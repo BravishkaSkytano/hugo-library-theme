@@ -1,12 +1,3 @@
-
-{{ define "subtitle" }}
-<a href="{{ .Parent.Permalink }}">
-  <em>{{ .Parent.Title }}</em> by {{ .Parent.Params.author }}
-</a><br/>
-{{ if (gt .ReadingTime 0) }}
-{{ .ReadingTime }} min. ({{ .WordCount }} words)
-{{ end }}
-{{ end }}
 {{ define "main" }}
 <article>
   {{ .Content }}

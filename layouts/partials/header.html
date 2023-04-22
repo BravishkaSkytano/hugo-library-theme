@@ -1,11 +1,16 @@
 <header class="container">
   <hgroup>
-    <h1>{{- block "title" . }}{{ .Title }}{{- end }}</h1>
+    <h1>{{ .Title }}{{ with .Params.author }} by {{ . }}{{ end }}</h1>
     <p>
-    {{- block "subtitle" . }}
-    {{ if .Params.subtitle }}{{ .Params.subtitle }}<br/>{{ end }}
-    {{ if .Description }}{{ .Description }}{{ end }}
-    {{ end }}
+      {{ with .Params.subtitle }}{{ . }}<br/>{{ end }}
+      {{ with .Description }}{{ . }}<br/>{{ end }}
+      {{ with .Params.author }}by {{ . }}<br/>{{ end }}
+      {{ with .GetTerms "categories" }}{{ range . }}
+      <a href="{{ .Permalink }}">{{ .LinkTitle }}.</a>
+      {{ end }}<br/>{{ end }}
+      {{ with .GetTerms "tags" }}{{ range . }}
+      <a href="{{ .Permalink }}">{{ .LinkTitle }}.</a>
+      {{ end }}<br/>{{ end }}
     </p>
   </hgroup>
 </header>

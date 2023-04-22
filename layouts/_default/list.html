@@ -1,12 +1,9 @@
-{{ define "title" }}
-<em>{{ .Title }}</em>{{ if .Params.author }} by {{ .Params.author }}{{ end }}
-{{ end }}
 {{ define "main" }}
 <article>
-  {{ if .Params.cover }}
+  {{ with .Params.cover }}
   <aside>
     <figure>
-      <img src="{{ .Params.cover }}" alt="cover" />
+      <img src="{{ . }}" alt="cover" />
     </figure>
   </aside>
   {{ end }}
